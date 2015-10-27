@@ -120,7 +120,7 @@ The recursive implementation for `evaluate()` is already given.
 + Does anything need to change in the `Formula` interface? 
 + Is your implementation recursive?
 
-#### Step 5. Generate Abstract Syntex Tree from Concrete Syntax Tree (Stack-based AST generation)
+#### Step 5. Generate Abstract Syntax Tree from Concrete Syntax Tree (Stack-based AST generation)
 
 We'll use a listener similar to the one designed for printing a parse tree to construct our AST. Look at `FormulaListener_FormulaCreator` in the file `FormulaFactory.java`.
 
