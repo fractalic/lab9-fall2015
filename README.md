@@ -2,8 +2,6 @@ CPEN 221 / Fall 2015: Lab 9
 Grammars and Parsing using ANTLR
 ====
 
-## Grammars and Parsing with ANTLR
-
 The goal of this recitation is to go over the concepts of grammars and parsing, as well as to give you experience using the parser generator ANTLR.
 
 ### Exercise 1: Parse and evaluate a simple Boolean Expression
