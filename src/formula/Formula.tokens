@@ -1,0 +1,7 @@
+NOT=4
+WHITESPACE=5
+AND=3
+TRUE=1
+FALSE=2
+'&'=3
+'!'=4

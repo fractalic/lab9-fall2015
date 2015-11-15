@@ -31,13 +31,13 @@ public class FormulaFactory {
         ParseTree tree = parser.formula(); // "root" is the starter rule.
         
         // debugging option #1: print the tree to the console
-//        System.err.println(tree.toStringTree(parser));
+        System.err.println(tree.toStringTree(parser));
 
         // debugging option #2: show the tree in a window
-//        ((RuleContext)tree).inspect(parser);
+        ((RuleContext)tree).inspect(parser);
 
         // debugging option #3: walk the tree with a listener
-//        new ParseTreeWalker().walk(new FormulaListener_PrintEverything(), tree);
+        new ParseTreeWalker().walk(new FormulaListener_PrintEverything(), tree);
         
         // Finally, construct a Document value by walking over the parse tree.
         ParseTreeWalker walker = new ParseTreeWalker();
@@ -70,6 +70,17 @@ public class FormulaFactory {
             }
         }
         
+        public void exitNegation(FormulaParser.NegationContext ctx) {
+        	if (ctx.NOT() != null) {
+        		// we matched the NOT rule
+        		Formula term = stack.pop();
+        		Formula not = new Not(term.evaluate());
+        		stack.push(not);
+        	} else {
+        		// do nothing
+        	}
+        }
+        
         @Override
         public void exitFormula(FormulaParser.FormulaContext ctx) {
             // do nothing, because the top of the stack should have the node already in it
@@ -88,6 +99,9 @@ public class FormulaFactory {
 
         public void enterConjunction(FormulaParser.ConjunctionContext ctx) { System.err.println("entering conjunction " + ctx.getText()); }
         public void exitConjunction(FormulaParser.ConjunctionContext ctx) { System.err.println("exiting conjunction " + ctx.getText()); }
+        
+        public void enterNegation(FormulaParser.NegationContext ctx) { System.err.println("entering negation " + ctx.getText()); }
+        public void exitNegation(FormulaParser.NegationContext ctx) { System.err.println("exiting negation " + ctx.getText()); }
 
         public void enterLiteral(FormulaParser.LiteralContext ctx) { System.err.println("entering literal " + ctx.getText()); }
         public void exitLiteral(FormulaParser.LiteralContext ctx) { System.err.println("exiting literal " + ctx.getText()); }

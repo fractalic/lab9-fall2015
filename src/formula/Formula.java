@@ -6,7 +6,7 @@ package formula;
  */
 
 public interface Formula {
-    
+	
     public boolean evaluate();
     
 }
