@@ -27,5 +27,10 @@ public class FormulaFactoryTest {
         assertFalse(FormulaFactory.parse("!T").evaluate());
         assertTrue(FormulaFactory.parse("!F").evaluate());
     }
+    
+    @Test
+    public void testComplexNegation() {
+        assertTrue(FormulaFactory.parse("T & true & ! false & ! false").evaluate());
+    }
 
 }
