@@ -11,4 +11,8 @@ public class Not implements Formula {
     public boolean evaluate() {
         return !value;
     }
+    
+    public String toString() {
+        return String.valueOf(value);
+    }
 }

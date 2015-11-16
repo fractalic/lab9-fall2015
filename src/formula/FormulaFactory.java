@@ -74,6 +74,8 @@ public class FormulaFactory {
         	if (ctx.NOT() != null) {
         		// we matched the NOT rule
         		Formula term = stack.pop();
+        		// we assume that the term is not a conjunction,
+        		// but could check for this here
         		Formula not = new Not(term.evaluate());
         		stack.push(not);
         	} else {

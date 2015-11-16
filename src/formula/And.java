@@ -14,4 +14,7 @@ public class And implements Formula {
         return left.evaluate() && right.evaluate();
     }
 
+    public String toString() {
+        return left.toString() + " " + right.toString();
+    }
 }
